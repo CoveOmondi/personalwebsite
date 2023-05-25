@@ -535,7 +535,7 @@
                      Message Me
                  </div>
                  
-                 <form id="fs-frm" name="simple-contact-form"  action="https://formspree.io/f/{form_id}" method="post">   
+                 <form id="fs-frm" name="simple-contact-form"  action="https://formspree.io/f/xknaazez" method="post">   
                     <div class="input-line">
                         <input  id="name" type="text" placeholder="Name" class="input-name">
                         <input id="email" type="email" placeholder="Email"  class="input-name">
@@ -543,6 +543,7 @@
                     <input type="text" id="subject" placeholder="subject" class="input-subject">
                     <textarea id ="body" class="input-textarea" placeholder="message"></textarea>
                     <button type="button" id ="submit" value="send">Submit</button>
+                    <p id="fs-frm-status"></p>
                  </form>
                
              </div>
@@ -598,7 +599,52 @@
     <script src="js/particles.js"></script>
     <script src="js/particles.min.js"></script>
     <script src="js/index.js"></script>
+    
+    
+    <script>
+        var form = document.getElementById("fs-frm");
+        
+        async function handleSubmit(event) {
+          event.preventDefault();
+          var status = document.getElementById("fs-frm-status");
+          var data = new FormData(event.target);
+          fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              status.innerHTML = "Thanks for your submission!";
+              form.reset()
+            } else {
+              response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                } else {
+                  status.innerHTML = "Oops! There was a problem submitting your form"
+                }
+              })
+            }
+          }).catch(error => {
+            status.innerHTML = "Oops! There was a problem submitting your form"
+          });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
+    
+    
+    
+    
+    
+
+
+
+
     <!--particles script-->
+
+
     <script>
   particlesJS("particles", {"particles":{"number":{"value":35,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
     </script>
