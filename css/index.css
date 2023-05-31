@@ -1093,9 +1093,11 @@ padding-bottom: 40px;
     background-position: center;
     background-size: cover;
     border-radius: 16px;
+    margin: auto;
     margin-bottom: 50px;
-    position: relative;
+    position: sticky;
     overflow: hidden;
+    padding: inherit;
 }
 .contact-info::before{
     content: "";

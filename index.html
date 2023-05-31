@@ -84,7 +84,7 @@
                 <div class="firstline"><span class="color"> Covenant </span> Omondi </div>
                 <div class="secondline">
                 I'm a
-            <span class="txt-rotate color" data-period="1200"data-rotate='[ " Data Scientist.", " Machine Learning Engineer.", " Video Editor.", " Motion-Graphics Designer.", " Voiceover Artist." ]'></span>
+            <span class="txt-rotate color" data-period="1200"data-rotate='[ " Data Scientist.", " Business Intelligence Consultant.", " Video Editor.", " Motion-Graphics Designer.", " Voiceover Artist." ]'></span>
             <span class="slash">|</span>
         </div>
                     <div class="contact">
@@ -148,7 +148,7 @@
                     <span class="color">multi-talented professional</span>
                      based in Nairobi, Kenya </span>
                      <br>
-               <span class="about-second-line"> <p>Meet me, a dynamic and multi-talented individual with a passion for blending the world of data and creativity. As a skilled Data Scientist and Machine Learning Engineer, I bring cutting-edge techniques to the table to extract meaningful insights from complex data sets. With a strong background in statistical analysis and machine learning algorithms, I'm constantly exploring innovative ways to leverage data to drive business growth and success. </p> <p></p> <p>But that's not all! I'm also a talented Video Editor, Motion Graphics Designer, and Voiceover Artist, bringing a creative touch to any project I work on. With a keen eye for visual storytelling and a knack for bringing ideas to life, I'm dedicated to crafting engaging and memorable content that captures the imagination of viewers.</p> <p>Although I started my journey in Video and Voice in 2020, I've already made an impact in the industry, earning a reputation for my attention to detail and commitment to excellence. </p> <p>With my recent foray into the exciting field of Data Science, I'm excited to bring my unique blend of skills to new and challenging projects, unlocking new insights and opportunities for my clients.</p><p>So whether you're looking to tell a compelling story through video, dive deep into complex data sets, or anything in between, I'm here to help bring your vision to life with creativity, expertise, and a passion for excellence.</p> </span>
+               <span class="about-second-line"> <p>Meet me, a dynamic and multi-talented individual with a passion for blending the world of data and creativity. As a skilled Data Scientist & Business Intelligence Consultant, I bring cutting-edge techniques to the table to extract meaningful insights from complex data sets. With a strong background in statistical analysis and machine learning algorithms, I'm constantly exploring innovative ways to leverage data to drive business growth and success. </p> <p></p> <p>But that's not all! I'm also a talented Video Editor, Motion Graphics Designer, and Voiceover Artist, bringing a creative touch to any project I work on. With a keen eye for visual storytelling and a knack for bringing ideas to life, I'm dedicated to crafting engaging and memorable content that captures the imagination of viewers.</p> <p>Although I started my journey in Video and Voice in 2020, I've already made an impact in the industry, earning a reputation for my attention to detail and commitment to excellence. </p> <p>With my recent foray into the exciting field of Data Science, I'm excited to bring my unique blend of skills to new and challenging projects, unlocking new insights and opportunities for my clients.</p><p>So whether you're looking to tell a compelling story through video, dive deep into complex data sets, or anything in between, I'm here to help bring your vision to life with creativity, expertise, and a passion for excellence.</p> </span>
                                                 <p>I currently hold two roles at Oracom Group, a Nairobi-based tech company. As Lead Motion Graphics Designer and Voiceover Artist, I use my creativity to bring ideas to life in visually compelling ways. Additionally, I serve as a Data Scientist and Business Intelligence Consultant, where I work with complex data sets to uncover insights that drive informed business decisions.</p>
                                                 
                                                 <div class="cv">                   
@@ -533,21 +533,8 @@
         <div class="contact-header-caption"> <span class="color"> Get in touch</span> for any services/queries </div></div>
         <div class="contact-content">
             <!--Contact form-->
-             <div class="contact-form">
-                 <div class="form-header">
-                     Message Me
-                 </div>
+            
                  
-                 <form id="fs-frm" name="simple-contact-form"  action="https://formspree.io/f/xknaazez" method="post">   
-                    <div class="input-line">
-                        <input  id="name" type="text" placeholder="Name" class="input-name">
-                        <input id="email" type="email" placeholder="Email"  class="input-name">
-                    </div>
-                    <input type="text" id="subject" placeholder="subject" class="input-subject">
-                    <textarea id ="body" class="input-textarea" placeholder="message"></textarea>
-                    <button type="button" id ="submit" value="send">Submit</button>
-                    <p id="fs-frm-status"></p>
-                 </form>
                
              </div>
             <!--Contact form-->
@@ -604,38 +591,69 @@
     <script src="js/index.js"></script>
     
     
-    <script>
-        var form = document.getElementById("fs-frm");
-        
-        async function handleSubmit(event) {
-          event.preventDefault();
-          var status = document.getElementById("fs-frm-status");
-          var data = new FormData(event.target);
-          fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-          }).then(response => {
-            if (response.ok) {
-              status.innerHTML = "Thanks for your submission!";
-              form.reset()
-            } else {
-              response.json().then(data => {
-                if (Object.hasOwn(data, 'errors')) {
-                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                } else {
-                  status.innerHTML = "Oops! There was a problem submitting your form"
-                }
-              })
-            }
-          }).catch(error => {
-            status.innerHTML = "Oops! There was a problem submitting your form"
-          });
-        }
-        form.addEventListener("submit", handleSubmit)
-    </script>
+    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+
+<script>
+  /* paste this in verbatim */
+  window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+formbutton("create", {
+title: "Talk to Cove",
+fields: [
+{
+type: "text",
+label: "Name:",
+name: "name",
+required: true,
+placeholder: "What's your name?"
+},{
+type: "email",
+label: "Email:",
+name: "email",
+required: true,
+placeholder: "your@email.com"
+},
+{
+type: "textarea",
+label: "Message:",
+name: "message",
+placeholder: "Ask/tell me anything",
+},
+{ type: "submit" }
+],
+styles: {
+modal: {
+background: "#EEE"
+},
+input: {
+border: "1px solid #CCC",
+padding: "5px",
+lineHeight: "1.25"
+},
+submitInput: {padding: "0.75em 1em"}
+},
+initiallyVisible: false,
+action: "https://formspree.io/f/xknaazez",
+styles: {
+fontFamily: '"Poppins", sans-serif',
+input: {
+borderRadius: "0px"
+}
+},
+onSubmit: (data, setStatus, spinner) => {
+setStatus(spinner);
+return data;
+},
+onResponse: function(ok, setStatus) {
+if (ok) {
+setStatus("<p>I appreciate your feedback!</p><p>I'll get back to you as soon as I can.</p>");
+
+
+} else {
+setStatus("Oops, there was an error! You can try again later.");
+}
+}
+});
+</script>
     
     
     
